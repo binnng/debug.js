@@ -11,3 +11,6 @@ debug.log("This is primary message:)");
 debug.log({a: 1, b: 2});
 debug.log([1,2,3]);
 ```
+
+### 预览
+![preview](https://cloud.githubusercontent.com/assets/2696107/4680760/96b74744-560d-11e4-92bb-ab1e2af40573.png)

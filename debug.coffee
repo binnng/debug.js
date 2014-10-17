@@ -1,3 +1,15 @@
+# ```
+# debug.js 1.0.0
+# 
+# ! CopyRight: binnng http://github.com/binnng/debug.js
+# Licensed under: MIT
+# http://binnng.github.io/debug.js
+# ```
+
+# ### Fork me on [Github](https://github.com/binnng/debug.js)!
+
+# ### [Homepage](http://binnng.github.io/debug.js)
+
 ((WIN, DOC) ->
 
   "use strict"
@@ -11,10 +23,16 @@
   SUCCESS = "success"
   ERROR = "error"
 
+  CLICK = "click"
+
+  isTouch = "ontouchend" of WIN
+
   noop = ->
 
-  dom = DOC.querySelectorAll or DOC.getElementsByTagName
+  dom = DOC.querySelectorAll
   toString = {}.toString
+  bind = (el, evt, callback) ->
+    el.addEventListener evt, callback, no
 
   isArray = Array.isArray or (val) -> 
     val.constructor is Array
@@ -53,42 +71,51 @@
 
       text
 
+    # 设置translate
+    translate = (el, y) ->
+      el.style.webkitTransform = "translate3d(0,#{y},0)"
+      el.style.transform = "translate3d(0,#{y},0)"
+
     joinCss = (css) -> css.join ";"
+
+    # debug 容器底部预留的高度
+    parentBottom = 6
 
     # 每个debug信息样式
     childCss = [
       "margin-top:-1px"
       "padding:.5em"
-      "border-top:1px solid rgba(255,255,255,.3)"
+      "border-top:1px solid rgba(255,255,255,.1)"
       "margin:0"
     ]
 
     # debug容器的样式
     parentCss = [
       "-webkit-overflow-scrolling:touch"
-      "pointer-events:none"
       "overflow:auto"
       "line-height:1.5"
       "z-index:5000"
       "position:fixed"
       "left:0"
       "top:0"
-      "max-width:50%"
-      "max-width:100%"
       "font-size:11px"
       "background:rgba(0,0,0,.8)"
       "color:#fff"
       "width:100%"
+      "padding-bottom:#{parentBottom}px"
+      "-webkit-transition: transform .3s ease"
+      "transition: transform .3s ease"
     ]
 
     constructor: -> 
-      # 是否初始化
-      isInit = no
+      # 是否初始化; 是否收起
+      @isInit = @isHide = no
 
-      msg = fn = color = ""
+      # 当前消息，当前执行函数，当前颜色
+      @msg = @fn = @color = ""
 
       # 外层元素
-      parent = NULL
+      @el = NULL
 
     init: ->
       el = @el = DOC.createElement "div"
@@ -97,12 +124,17 @@
       body = getBody()
       body.appendChild(el)
 
+      # 初始位置
+      translate el, 0
+
+      # 绑定事件
+      bind el, CLICK, => @toggle()
+
       @isInit = yes
 
       @
 
     # 核心的输出debug信息方法
-    # private
     print: ->
 
       @init() unless @isInit
@@ -115,7 +147,23 @@
 
       @
 
+    # 隐藏和收起
+    toggle: (event) ->
+      (if @isHide then @show else @hide).call @, event
 
+    show: (event) ->
+      translate @el, 0
+      @isHide = no
+
+      @
+
+    hide: (event) ->
+      translate @el, "-#{@el.offsetHeight - parentBottom}px"
+      @isHide = yes
+
+      @
+
+    # 添加所有debug方法
     for fn of colorMap
       @::[fn] = ((fn) ->
         (msg) ->
@@ -125,7 +173,7 @@
           @print()
       ) fn
 
-
+  # 开放一个实例
   entry = new Debug()
 
   if typeof exports isnt "undefined" and module.exports
@@ -134,7 +182,6 @@
     define (require, exports, module) ->
       module.exports = exports = entry
   else
-    # 浏览器端直接运行
     WIN["debug"] = entry
 
 ) window, document
