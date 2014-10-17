@@ -14,3 +14,12 @@ debug.log([1,2,3]);
 
 ### 预览
 ![preview](https://cloud.githubusercontent.com/assets/2696107/4680760/96b74744-560d-11e4-92bb-ab1e2af40573.png)
+
+### 主页
+[http://binnng.github.io/debug.js](http://binnng.github.io/debug.js/)
+
+### 源码
+[http://binnng.github.io/debug.js/docs/debug.html](http://binnng.github.io/debug.js/docs/debug.html)
+
+### 协议
+MIT
