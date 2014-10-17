@@ -34,11 +34,13 @@
   bind = (el, evt, callback) ->
     el.addEventListener evt, callback, no
 
-  isArray = Array.isArray or (val) -> 
-    val.constructor is Array
+  isNull = (val) -> val is NULL
 
-  isObejct = (obj) -> 
-    obj.constructor is Object
+  isArray = Array.isArray or (val) -> 
+    val and "[object Array]" is toString.call(val)
+
+  isObejct = (val) -> 
+    typeof val is "object" and not isArray(val) and not isNull(val)
 
   # 不能直接定义，可能取不到
   getBody = -> DOC["body"] or dom("body")?[0] or dom("html")?[0]
@@ -175,6 +177,19 @@
 
   # 开放一个实例
   entry = new Debug()
+
+  # 绑定window，捕捉js报错信息
+  bind WIN, ERROR, (error) ->
+
+    msg = [
+      "Error:"
+      "filename: #{error.filename}"
+      "lineno: #{error.lineno}"
+      "message: #{error.message}"
+      "type: #{error.type}"
+    ]
+
+    entry.error msg.join("<br/>")
 
   if typeof exports isnt "undefined" and module.exports
     module.exports = exports = entry
