@@ -103,8 +103,8 @@
       "color:#fff"
       "width:100%"
       "padding-bottom:#{parentBottom}px"
-      "-webkit-transition: transform .3s ease"
-      "transition: transform .3s ease"
+      "-webkit-transition: all .3s ease"
+      "transition: all .3s ease"
     ]
 
     constructor: -> 

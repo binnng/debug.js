@@ -72,7 +72,7 @@
 
     childCss = ["margin-top:-1px", "padding:.5em", "border-top:1px solid rgba(255,255,255,.1)", "margin:0"];
 
-    parentCss = ["-webkit-overflow-scrolling:touch", "overflow:auto", "line-height:1.5", "z-index:5000", "position:fixed", "left:0", "top:0", "font-size:11px", "background:rgba(0,0,0,.8)", "color:#fff", "width:100%", "padding-bottom:" + parentBottom + "px", "-webkit-transition: transform .3s ease", "transition: transform .3s ease"];
+    parentCss = ["-webkit-overflow-scrolling:touch", "overflow:auto", "line-height:1.5", "z-index:5000", "position:fixed", "left:0", "top:0", "font-size:11px", "background:rgba(0,0,0,.8)", "color:#fff", "width:100%", "padding-bottom:" + parentBottom + "px", "-webkit-transition: all .3s ease", "transition: all .3s ease"];
 
     function Debug() {
       this.isInit = this.isHide = false;
