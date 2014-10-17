@@ -1,0 +1,26 @@
+{
+  "name": "binnng/debug.js",
+  "main": "debug.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/binnng/debug.js",
+  "authors": [
+    "binnng <imbinnng@gmail.com>"
+  ],
+  "description": "print your debug code in mobile",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "debug",
+    "console"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

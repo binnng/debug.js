@@ -1,0 +1,17 @@
+{
+  "name": "debug.js",
+  "repo": "binnng/debug.js",
+  "description": "print your debug code in mobile",
+  "version": "0.0.1",
+  "keywords": [
+    "debug",
+    "console"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "debug.js",
+  "scripts": [
+    "debug.js"
+  ]
+}
