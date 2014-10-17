@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>debug.js - binnng</title>
+	<script type="text/javascript" src="../build/debug.min.js"></script>
+	<meta  name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" type="text/css" href="../stylesheets/stylesheet.css" media="screen">
+  <style type="text/css">
+  	body{
+  		text-shadow: none !important;
+  	}
+		header{
+			padding-top:180px;
+			text-align: center;
+		}
+
+		#downloads{
+			margin-top: 40px;
+		}
+
+		#view-on-github{
+			float: none;
+			margin: 0 auto;
+		}
+  </style>
+</head>
+<body style="background: #eee">
+	<header>
+    <h1>Debug.js</h1>
+    <h2>在手机上打印调试信息。</h2>
+  </header>
+  <section id="downloads">
+    <a href="https://github.com/binnng/debug.js" id="view-on-github" class="button"><span>View on GitHub</span></a>
+  </section>
+	<script type="text/javascript">
+		debug.success("This is success message:)");
+		debug.error("This is error message:)");
+		debug.log("This is primary message:)");
+		debug.log({a: 1, b: 2});
+		debug.log([1,2,3]);
+	</script>
+</body>
+</html>
