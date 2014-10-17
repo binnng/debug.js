@@ -18,6 +18,17 @@ debug.log([1,2,3]);
 ### Demo
 [http://binnng.github.io/debug.js/demo/index.html](http://binnng.github.io/debug.js/demo/index.html)
 
+### 安装
+* bower
+```
+bower install binnng/debug.js
+```
+
+* component
+```
+component install binnng/debug.js
+```
+
 ### 主页
 [http://binnng.github.io/debug.js](http://binnng.github.io/debug.js/)
 
