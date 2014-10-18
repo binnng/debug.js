@@ -85,12 +85,14 @@ Licensed <span class="hljs-attribute">under</span>: MIT
   toString = {}.toString
 <span class="hljs-function">  <span class="hljs-title">bind</span> = <span class="hljs-params">(el, evt, callback)</span> -&gt;</span>
     el.addEventListener evt, callback, <span class="hljs-literal">no</span>
+<span class="hljs-function">
+  <span class="hljs-title">isNull</span> = <span class="hljs-params">(val)</span> -&gt;</span> val <span class="hljs-keyword">is</span> NULL
 
   isArray = Array.isArray <span class="hljs-keyword">or</span> <span class="hljs-function"><span class="hljs-params">(val)</span> -&gt;</span> 
-    val.constructor <span class="hljs-keyword">is</span> Array
+    val <span class="hljs-keyword">and</span> <span class="hljs-string">"[object Array]"</span> <span class="hljs-keyword">is</span> toString.call(val)
 <span class="hljs-function">
-  <span class="hljs-title">isObejct</span> = <span class="hljs-params">(obj)</span> -&gt;</span> 
-    obj.constructor <span class="hljs-keyword">is</span> Object</pre></div></div>
+  <span class="hljs-title">isObejct</span> = <span class="hljs-params">(val)</span> -&gt;</span> 
+    <span class="hljs-keyword">typeof</span> val <span class="hljs-keyword">is</span> <span class="hljs-string">"object"</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> isArray(val) <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> isNull(val)</pre></div></div>
             
         </li>
         
@@ -122,7 +124,7 @@ Licensed <span class="hljs-attribute">under</span>: MIT
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    colorMap = 
+            <div class="content"><div class='highlight'><pre>    debugMap = 
       <span class="hljs-attribute">log</span>: <span class="hljs-string">"0074cc"</span>
       <span class="hljs-attribute">danger</span>: <span class="hljs-string">"da4f49"</span>
       <span class="hljs-attribute">warn</span>: <span class="hljs-string">"faa732"</span>
@@ -143,7 +145,7 @@ Licensed <span class="hljs-attribute">under</span>: MIT
             </div>
             
             <div class="content"><div class='highlight'><pre><span class="hljs-function">    <span class="hljs-title">render</span> = <span class="hljs-params">(msg)</span> -&gt;</span>
-      text = []
+      text = <span class="hljs-string">""</span>
       arr = []
 
       <span class="hljs-keyword">if</span> isArray msg
@@ -191,7 +193,12 @@ Licensed <span class="hljs-attribute">under</span>: MIT
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    parentBottom = <span class="hljs-number">6</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre>    parentBottom = <span class="hljs-number">6</span>
+
+    publicCss = [
+      <span class="hljs-string">"-webkit-transition: all .3s ease"</span>
+      <span class="hljs-string">"transition: all .3s ease"</span>
+    ]</pre></div></div>
             
         </li>
         
@@ -211,7 +218,7 @@ Licensed <span class="hljs-attribute">under</span>: MIT
       <span class="hljs-string">"padding:.5em"</span>
       <span class="hljs-string">"border-top:1px solid rgba(255,255,255,.1)"</span>
       <span class="hljs-string">"margin:0"</span>
-    ]</pre></div></div>
+    ].concat publicCss</pre></div></div>
             
         </li>
         
@@ -239,9 +246,7 @@ Licensed <span class="hljs-attribute">under</span>: MIT
       <span class="hljs-string">"color:#fff"</span>
       <span class="hljs-string">"width:100%"</span>
       <span class="hljs-string">"padding-bottom:<span class="hljs-subst">#{parentBottom}</span>px"</span>
-      <span class="hljs-string">"-webkit-transition: transform .3s ease"</span>
-      <span class="hljs-string">"transition: transform .3s ease"</span>
-    ]
+    ].concat publicCss
 
     <span class="hljs-attribute">constructor</span>:<span class="hljs-function"> -&gt;</span></pre></div></div>
             
@@ -254,7 +259,7 @@ Licensed <span class="hljs-attribute">under</span>: MIT
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
-              <p>是否初始化; 是否收起</p>
+              <p>是否初始化，是否收起</p>
 
             </div>
             
@@ -340,7 +345,8 @@ Licensed <span class="hljs-attribute">under</span>: MIT
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
-              <p>核心的输出debug信息方法</p>
+              <p><code>debug.print()</code>
+核心的输出debug信息方法</p>
 
             </div>
             
@@ -365,7 +371,8 @@ Licensed <span class="hljs-attribute">under</span>: MIT
               <div class="pilwrap ">
                 <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
-              <p>隐藏和收起</p>
+              <p><code>debug.toggle()</code>
+隐藏和收起</p>
 
             </div>
             
@@ -394,15 +401,20 @@ Licensed <span class="hljs-attribute">under</span>: MIT
                 <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p>添加所有debug方法</p>
-
+<pre><code>debug.log()
+debug.danger()
+debug.warn()
+debug.error()
+debug.success()
+</code></pre>
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">for</span> fn <span class="hljs-keyword">of</span> colorMap
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-keyword">for</span> fn <span class="hljs-keyword">of</span> debugMap
       @::[fn] = <span class="hljs-function">(<span class="hljs-params">(fn)</span> -&gt;</span>
 <span class="hljs-function">        <span class="hljs-params">(msg)</span> -&gt;</span>
           <span class="hljs-property">@fn</span> = fn
           <span class="hljs-property">@msg</span> = render msg
-          <span class="hljs-property">@color</span> = colorMap[fn]
+          <span class="hljs-property">@color</span> = debugMap[fn]
           <span class="hljs-property">@print</span>()
       ) fn</pre></div></div>
             
@@ -419,7 +431,45 @@ Licensed <span class="hljs-attribute">under</span>: MIT
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  entry = <span class="hljs-keyword">new</span> Debug()
+            <div class="content"><div class='highlight'><pre>  entry = <span class="hljs-keyword">new</span> Debug()</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>绑定window，捕捉js报错信息</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  bind WIN, ERROR, <span class="hljs-function"><span class="hljs-params">(error)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>只输出有用的错误信息</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    msg = [
+      <span class="hljs-string">"Error:"</span>
+      <span class="hljs-string">"filename: <span class="hljs-subst">#{error.filename}</span>"</span>
+      <span class="hljs-string">"lineno: <span class="hljs-subst">#{error.lineno}</span>"</span>
+      <span class="hljs-string">"message: <span class="hljs-subst">#{error.message}</span>"</span>
+      <span class="hljs-string">"type: <span class="hljs-subst">#{error.type}</span>"</span>
+    ]
+
+    entry.error msg.join(<span class="hljs-string">"&lt;br/&gt;"</span>)
 
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">typeof</span> exports <span class="hljs-keyword">isnt</span> <span class="hljs-string">"undefined"</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">module</span>.exports
     <span class="hljs-built_in">module</span>.exports = exports = entry
