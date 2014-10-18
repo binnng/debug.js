@@ -31,9 +31,9 @@
     return DOC["body"] || ((_ref = dom("body")) != null ? _ref[0] : void 0) || ((_ref1 = dom("html")) != null ? _ref1[0] : void 0);
   };
   Debug = (function() {
-    var childCss, colorMap, fn, joinCss, parentBottom, parentCss, render, translate;
+    var childCss, debugMap, fn, joinCss, parentBottom, parentCss, publicCss, render, translate;
 
-    colorMap = {
+    debugMap = {
       log: "0074cc",
       danger: "da4f49",
       warn: "faa732",
@@ -43,7 +43,7 @@
 
     render = function(msg) {
       var arr, item, text, _i, _len;
-      text = [];
+      text = "";
       arr = [];
       if (isArray(msg)) {
         for (_i = 0, _len = msg.length; _i < _len; _i++) {
@@ -73,9 +73,11 @@
 
     parentBottom = 6;
 
-    childCss = ["margin-top:-1px", "padding:.5em", "border-top:1px solid rgba(255,255,255,.1)", "margin:0"];
+    publicCss = ["-webkit-transition: all .3s ease", "transition: all .3s ease"];
 
-    parentCss = ["-webkit-overflow-scrolling:touch", "overflow:auto", "line-height:1.5", "z-index:5000", "position:fixed", "left:0", "top:0", "font-size:11px", "background:rgba(0,0,0,.8)", "color:#fff", "width:100%", "padding-bottom:" + parentBottom + "px", "-webkit-transition: all .3s ease", "transition: all .3s ease"];
+    childCss = ["margin-top:-1px", "padding:.5em", "border-top:1px solid rgba(255,255,255,.1)", "margin:0"].concat(publicCss);
+
+    parentCss = ["-webkit-overflow-scrolling:touch", "overflow:auto", "line-height:1.5", "z-index:5000", "position:fixed", "left:0", "top:0", "font-size:11px", "background:rgba(0,0,0,.8)", "color:#fff", "width:100%", "padding-bottom:" + parentBottom + "px"].concat(publicCss);
 
     function Debug() {
       this.isInit = this.isHide = false;
@@ -128,12 +130,12 @@
       return this;
     };
 
-    for (fn in colorMap) {
+    for (fn in debugMap) {
       Debug.prototype[fn] = (function(fn) {
         return function(msg) {
           this.fn = fn;
           this.msg = render(msg);
-          this.color = colorMap[fn];
+          this.color = debugMap[fn];
           return this.print();
         };
       })(fn);

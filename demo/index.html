@@ -23,22 +23,53 @@
 			float: none;
 			margin: 0 auto;
 		}
+		
+		#buttons{
+			margin-top: 10px;
+		}
+		#buttons p{
+			text-align: center;
+			background-color: #0074cc;
+			margin: .4em 10px;
+			padding: .4em;
+			color: #fff;
+			border-radius: 2px;
+		}
+
+
+		#buttons .success{
+			background-color: #5bb75b;
+		}
+		#buttons .error{
+			background-color: #bd362f;
+		}
+		#buttons .warn{
+			background-color: #faa732;
+		}
+		#buttons .danger{
+			background-color: #da4f49;
+		}
   </style>
 </head>
 <body style="background: #eee">
 	<header>
-    <h1>Debug.js</h1>
+    <h1>debug.js</h1>
     <h2>在手机上打印调试信息。</h2>
   </header>
+  <section id="buttons">
+  	<p onclick="debug.success('success!')" class="success">输出一个成功信息</p>
+  	<p onclick="debug.error('error!')" class="error">输出一个错误信息</p>
+  	<p onclick="debug.warn('warning!')" class="warn">输出一个警告信息</p>
+  	<p onclick="debug.warn('danger!')" class="danger">输出一个危险信息</p>
+  	<p onclick="debug.log('primary!')" class="primary">输出一个普通信息</p>
+  	<p onclick="debug.log({a:1,b:2})">输出一个Obejct</p>
+  	<p onclick="debug.log([1,2,3])">输出一个Array</p>
+  </section>
   <section id="downloads">
-    <a href="https://github.com/binnng/debug.js" id="view-on-github" class="button"><span>View on GitHub</span></a>
+    <a href="../debug.js" id="view-on-github" class="button"><span>View on GitHub</span></a>
   </section>
 	<script type="text/javascript">
-		debug.success("This is success message:)");
-		debug.error("This is error message:)");
-		debug.log("This is primary message:)");
-		debug.log({a: 1, b: 2});
-		debug.log([1,2,3]);
+		debug.success("Welcome to debug.js:)");
 	</script>
 </body>
 </html>

@@ -48,7 +48,7 @@
   class Debug
 
     # 种类和颜色
-    colorMap = 
+    debugMap = 
       log: "0074cc"
       danger: "da4f49"
       warn: "faa732"
@@ -57,7 +57,7 @@
 
     # 将不同类型的msg转换为可读的String
     render = (msg) ->
-      text = []
+      text = ""
       arr = []
 
       if isArray msg
@@ -83,13 +83,18 @@
     # debug 容器底部预留的高度
     parentBottom = 6
 
+    publicCss = [
+      "-webkit-transition: all .3s ease"
+      "transition: all .3s ease"
+    ]
+
     # 每个debug信息样式
     childCss = [
       "margin-top:-1px"
       "padding:.5em"
       "border-top:1px solid rgba(255,255,255,.1)"
       "margin:0"
-    ]
+    ].concat publicCss
 
     # debug容器的样式
     parentCss = [
@@ -105,12 +110,10 @@
       "color:#fff"
       "width:100%"
       "padding-bottom:#{parentBottom}px"
-      "-webkit-transition: all .3s ease"
-      "transition: all .3s ease"
-    ]
+    ].concat publicCss
 
     constructor: -> 
-      # 是否初始化; 是否收起
+      # 是否初始化，是否收起
       @isInit = @isHide = no
 
       # 当前消息，当前执行函数，当前颜色
@@ -136,6 +139,7 @@
 
       @
 
+    # `debug.print()`
     # 核心的输出debug信息方法
     print: ->
 
@@ -149,6 +153,7 @@
 
       @
 
+    # `debug.toggle()`
     # 隐藏和收起
     toggle: (event) ->
       (if @isHide then @show else @hide).call @, event
@@ -166,12 +171,19 @@
       @
 
     # 添加所有debug方法
-    for fn of colorMap
+    # ```
+    # debug.log()
+    # debug.danger()
+    # debug.warn()
+    # debug.error()
+    # debug.success()
+    # ```
+    for fn of debugMap
       @::[fn] = ((fn) ->
         (msg) ->
           @fn = fn
           @msg = render msg
-          @color = colorMap[fn]
+          @color = debugMap[fn]
           @print()
       ) fn
 
@@ -180,7 +192,7 @@
 
   # 绑定window，捕捉js报错信息
   bind WIN, ERROR, (error) ->
-
+    # 只输出有用的错误信息
     msg = [
       "Error:"
       "filename: #{error.filename}"
