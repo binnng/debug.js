@@ -33,7 +33,7 @@ component install binnng/debug.js
 如果你使用angular：
 
 ```javascript
-var app = angular.module("mifan", [
+var app = angular.module("app", [
 	"binnng/debug"
 ]);
 
