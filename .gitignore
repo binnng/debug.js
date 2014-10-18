@@ -2,3 +2,7 @@ node_modules
 npm-debug.log
 bower_components
 components
+images
+javascripts
+stylesheets
+params.json
