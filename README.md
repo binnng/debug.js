@@ -29,6 +29,19 @@ bower install binnng/debug.js
 component install binnng/debug.js
 ```
 
+### angular
+如果你使用angular：
+
+```javascript
+var app = angular.module("app", [
+	"binnng/debug"
+]);
+
+app.controller("ctrl", function($debug) {
+	$debug.success("Welcome to debug.js");
+});
+```
+
 ### 主页
 [http://binnng.github.io/debug.js](http://binnng.github.io/debug.js/)
 

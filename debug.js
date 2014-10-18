@@ -156,6 +156,10 @@
     return define(function(require, exports, module) {
       return module.exports = exports = entry;
     });
+  } else if (typeof angular === "object") {
+    return angular.module("binnng/debug", []).factory("$debug", function() {
+      return entry;
+    });
   } else {
     return WIN["debug"] = entry;
   }
