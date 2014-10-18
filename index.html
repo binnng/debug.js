@@ -59,6 +59,20 @@ bower install binnng/debug.js
 component install binnng/debug.js
 </pre>
 
+
+<h3>
+<a name="%E9%A2%84%E8%A7%88" class="anchor" href="#%E9%A2%84%E8%A7%88"><span class="octicon octicon-link"></span></a>Angualr</h3>
+<p>如果你使用angular：</p>
+<pre>
+var app = angular.module("mifan", [
+  "binnng/debug"
+]);
+
+app.controller("ctrl", function($debug) {
+  $debug.success("Welcome to debug.js");
+});
+</pre>
+
 <h3>
 <a name="%E9%A2%84%E8%A7%88" class="anchor" href="#%E9%A2%84%E8%A7%88"><span class="octicon octicon-link"></span></a>源码</h3>
 

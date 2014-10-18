@@ -208,6 +208,8 @@
   else if typeof define is "function"
     define (require, exports, module) ->
       module.exports = exports = entry
+  else if typeof angular is "object"
+    angular.module("binnng/debug", []).factory "$debug", -> entry
   else
     WIN["debug"] = entry
 
