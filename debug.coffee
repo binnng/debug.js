@@ -155,7 +155,7 @@
 
     # `debug.toggle()`
     # 隐藏和收起
-    toggle: (event) ->
+    toggle: (event) =>
       (if @isHide then @show else @hide).call @, event
 
     show: (event) ->
