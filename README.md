@@ -18,6 +18,14 @@ debug.log([1,2,3]);
 ### Demo
 [http://binnng.github.io/debug.js/demo/index.html](http://binnng.github.io/debug.js/demo/index.html)
 
+### API
+
+```javascript
+debug.log()
+debug.log()
+debug.log()
+```
+
 ### 安装
 * bower
 ```
