@@ -22,8 +22,10 @@ debug.log([1,2,3]);
 
 ```javascript
 debug.log()
-debug.log()
-debug.log()
+debug.success()
+debug.warn()
+debug.error()
+debug.danger()
 ```
 
 ### 安装
