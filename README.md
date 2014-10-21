@@ -12,6 +12,12 @@ debug.log({a: 1, b: 2});
 debug.log([1,2,3]);
 ```
 
+`debug.js`为了方便调试，会默认开启捕捉浏览器的报错。如果你不需要这个功能，可以这样禁止它：
+
+```javascript
+debug.guai()
+```
+
 ### 预览
 ![preview](https://cloud.githubusercontent.com/assets/2696107/4680760/96b74744-560d-11e4-92bb-ab1e2af40573.png)
 

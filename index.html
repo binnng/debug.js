@@ -10,6 +10,11 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <title>Debug.js by binnng</title>
+    <style type="text/css">
+      a[href*="tongji.baidu"]{
+        display: none;
+      }
+    </style>
   </head>
 
   <body>
@@ -45,6 +50,11 @@
 <span class="nx">debug</span><span class="p">.</span><span class="nx">log</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]);</span>
 </pre></div>
 
+<p>为了方便调试，<code>debug.js</code>会默认开启捕捉浏览器的报错。如果你不需要这个功能，可以这样禁止它：</p>
+<pre>
+  debug.guai();
+</pre>
+
 <h3>
 <a name="%E9%A2%84%E8%A7%88" class="anchor" href="#%E9%A2%84%E8%A7%88"><span class="octicon octicon-link"></span></a>预览</h3>
 
@@ -57,6 +67,20 @@ bower install binnng/debug.js
 </pre>
 <pre>
 component install binnng/debug.js
+</pre>
+
+
+<h3>
+<a name="%E9%A2%84%E8%A7%88" class="anchor" href="#%E9%A2%84%E8%A7%88"><span class="octicon octicon-link"></span></a>Angualr</h3>
+<p>如果你使用angular：</p>
+<pre>
+var app = angular.module("mifan", [
+  "binnng/debug"
+]);
+
+app.controller("ctrl", function($debug) {
+  $debug.success("Welcome to debug.js");
+});
 </pre>
 
 <h3>
@@ -78,5 +102,11 @@ component install binnng/debug.js
         
       </div>
     </div>
+
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0808592e3802a8d59e78e2e601623a22' type='text/javascript'%3E%3C/script%3E"));
+</script>
+
   </body>
 </html>
