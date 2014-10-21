@@ -82,9 +82,39 @@ Licensed <span class="hljs-attribute">under</span>: MIT
   <span class="hljs-title">noop</span> = -&gt;</span>
 
   dom = DOC.querySelectorAll
-  toString = {}.toString
-<span class="hljs-function">  <span class="hljs-title">bind</span> = <span class="hljs-params">(el, evt, callback)</span> -&gt;</span>
-    el.addEventListener evt, callback, <span class="hljs-literal">no</span>
+  toString = {}.toString</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>绑定事件</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">bind</span> = <span class="hljs-params">(el, evt, callback)</span> -&gt;</span>
+    el.addEventListener evt, callback, <span class="hljs-literal">no</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>解绑事件</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">unbind</span> = <span class="hljs-params">(el, evt, fn)</span> -&gt;</span>
+    el.removeEventListener evt, fn, <span class="hljs-literal">no</span>
 <span class="hljs-function">
   <span class="hljs-title">isNull</span> = <span class="hljs-params">(val)</span> -&gt;</span> val <span class="hljs-keyword">is</span> NULL
 
@@ -97,11 +127,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-4">
+        <li id="section-6">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-4">&#182;</a>
+                <a class="pilcrow" href="#section-6">&#182;</a>
               </div>
               <p>不能直接定义，可能取不到</p>
 
@@ -114,11 +144,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-5">
+        <li id="section-7">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-5">&#182;</a>
+                <a class="pilcrow" href="#section-7">&#182;</a>
               </div>
               <p>种类和颜色</p>
 
@@ -134,11 +164,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-6">
+        <li id="section-8">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-6">&#182;</a>
+                <a class="pilcrow" href="#section-8">&#182;</a>
               </div>
               <p>将不同类型的msg转换为可读的String</p>
 
@@ -164,11 +194,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-7">
+        <li id="section-9">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-7">&#182;</a>
+                <a class="pilcrow" href="#section-9">&#182;</a>
               </div>
               <p>设置translate</p>
 
@@ -183,11 +213,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-8">
+        <li id="section-10">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-8">&#182;</a>
+                <a class="pilcrow" href="#section-10">&#182;</a>
               </div>
               <p>debug 容器底部预留的高度</p>
 
@@ -203,11 +233,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-9">
+        <li id="section-11">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-9">&#182;</a>
+                <a class="pilcrow" href="#section-11">&#182;</a>
               </div>
               <p>每个debug信息样式</p>
 
@@ -223,11 +253,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-10">
+        <li id="section-12">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-10">&#182;</a>
+                <a class="pilcrow" href="#section-12">&#182;</a>
               </div>
               <p>debug容器的样式</p>
 
@@ -253,11 +283,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-11">
+        <li id="section-13">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-11">&#182;</a>
+                <a class="pilcrow" href="#section-13">&#182;</a>
               </div>
               <p>是否初始化，是否收起</p>
 
@@ -268,11 +298,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-12">
+        <li id="section-14">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-12">&#182;</a>
+                <a class="pilcrow" href="#section-14">&#182;</a>
               </div>
               <p>当前消息，当前执行函数，当前颜色</p>
 
@@ -283,11 +313,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-13">
+        <li id="section-15">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-13">&#182;</a>
+                <a class="pilcrow" href="#section-15">&#182;</a>
               </div>
               <p>外层元素</p>
 
@@ -305,11 +335,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-14">
+        <li id="section-16">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-14">&#182;</a>
+                <a class="pilcrow" href="#section-16">&#182;</a>
               </div>
               <p>初始位置</p>
 
@@ -320,11 +350,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-15">
+        <li id="section-17">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-15">&#182;</a>
+                <a class="pilcrow" href="#section-17">&#182;</a>
               </div>
               <p>绑定事件</p>
 
@@ -339,11 +369,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-16">
+        <li id="section-18">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-16">&#182;</a>
+                <a class="pilcrow" href="#section-18">&#182;</a>
               </div>
               <p><code>debug.print()</code>
 核心的输出debug信息方法</p>
@@ -365,18 +395,18 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-17">
+        <li id="section-19">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-17">&#182;</a>
+                <a class="pilcrow" href="#section-19">&#182;</a>
               </div>
               <p><code>debug.toggle()</code>
 隐藏和收起</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">toggle</span>: <span class="hljs-function"><span class="hljs-params">(event)</span> -&gt;</span>
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">toggle</span>: <span class="hljs-function"><span class="hljs-params">(event)</span> =&gt;</span>
       (<span class="hljs-keyword">if</span> <span class="hljs-property">@isHide</span> <span class="hljs-keyword">then</span> <span class="hljs-property">@show</span> <span class="hljs-keyword">else</span> <span class="hljs-property">@hide</span>).call @, event
 
     <span class="hljs-attribute">show</span>: <span class="hljs-function"><span class="hljs-params">(event)</span> -&gt;</span>
@@ -394,11 +424,11 @@ Licensed <span class="hljs-attribute">under</span>: MIT
         </li>
         
         
-        <li id="section-18">
+        <li id="section-20">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-18">&#182;</a>
+                <a class="pilcrow" href="#section-20">&#182;</a>
               </div>
               <p>添加所有debug方法</p>
 <pre><code>debug.log()
@@ -421,11 +451,11 @@ debug.success()
         </li>
         
         
-        <li id="section-19">
+        <li id="section-21">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-19">&#182;</a>
+                <a class="pilcrow" href="#section-21">&#182;</a>
               </div>
               <p>开放一个实例</p>
 
@@ -436,26 +466,27 @@ debug.success()
         </li>
         
         
-        <li id="section-20">
+        <li id="section-22">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-20">&#182;</a>
+                <a class="pilcrow" href="#section-22">&#182;</a>
               </div>
-              <p>绑定window，捕捉js报错信息</p>
+              <p>绑定window，捕捉js报错信息
+可以通过debug.guai()禁用</p>
 
             </div>
             
-            <div class="content"><div class='highlight'><pre>  bind WIN, ERROR, <span class="hljs-function"><span class="hljs-params">(error)</span> -&gt;</span></pre></div></div>
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">errListener</span> = <span class="hljs-params">(error)</span> -&gt;</span></pre></div></div>
             
         </li>
         
         
-        <li id="section-21">
+        <li id="section-23">
             <div class="annotation">
               
               <div class="pilwrap ">
-                <a class="pilcrow" href="#section-21">&#182;</a>
+                <a class="pilcrow" href="#section-23">&#182;</a>
               </div>
               <p>只输出有用的错误信息</p>
 
@@ -470,6 +501,24 @@ debug.success()
     ]
 
     entry.error msg.join(<span class="hljs-string">"&lt;br/&gt;"</span>)
+
+  bind WIN, ERROR, errListener</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>取消绑定window的错误捕捉</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  entry.g<span class="hljs-function"><span class="hljs-title">uai</span> = -&gt;</span>
+    unbind WIN, ERROR, errListener
 
   <span class="hljs-keyword">if</span> <span class="hljs-keyword">typeof</span> exports <span class="hljs-keyword">isnt</span> <span class="hljs-string">"undefined"</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">module</span>.exports
     <span class="hljs-built_in">module</span>.exports = exports = entry

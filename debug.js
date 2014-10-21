@@ -3,7 +3,7 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
 (function(WIN, DOC) {
   "use strict";
-  var CLICK, DANGER, Debug, ERROR, LOG, NULL, SUCCESS, UNDEFINED, WARN, bind, dom, entry, exports, getBody, isArray, isNull, isObejct, isTouch, noop, toString;
+  var CLICK, DANGER, Debug, ERROR, LOG, NULL, SUCCESS, UNDEFINED, WARN, bind, dom, entry, errListener, exports, getBody, isArray, isNull, isObejct, isTouch, noop, toString, unbind;
   UNDEFINED = void 0;
   NULL = null;
   LOG = "log";
@@ -18,6 +18,9 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   toString = {}.toString;
   bind = function(el, evt, callback) {
     return el.addEventListener(evt, callback, false);
+  };
+  unbind = function(el, evt, fn) {
+    return el.removeEventListener(evt, fn, false);
   };
   isNull = function(val) {
     return val === NULL;
@@ -148,11 +151,15 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
 
   })();
   entry = new Debug();
-  bind(WIN, ERROR, function(error) {
+  errListener = function(error) {
     var msg;
     msg = ["Error:", "filename: " + error.filename, "lineno: " + error.lineno, "message: " + error.message, "type: " + error.type];
     return entry.error(msg.join("<br/>"));
-  });
+  };
+  bind(WIN, ERROR, errListener);
+  entry.guai = function() {
+    return unbind(WIN, ERROR, errListener);
+  };
   if (typeof exports !== "undefined" && module.exports) {
     return module.exports = exports = entry;
   } else if (typeof define === "function") {
