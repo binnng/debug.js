@@ -31,8 +31,14 @@
 
   dom = DOC.querySelectorAll
   toString = {}.toString
+
+  # 绑定事件
   bind = (el, evt, callback) ->
     el.addEventListener evt, callback, no
+
+  # 解绑事件
+  unbind = (el, evt, fn) ->
+    el.removeEventListener evt, fn, no
 
   isNull = (val) -> val is NULL
 
@@ -191,7 +197,8 @@
   entry = new Debug()
 
   # 绑定window，捕捉js报错信息
-  bind WIN, ERROR, (error) ->
+  # 可以通过debug.guai()禁用
+  errListener = (error) ->
     # 只输出有用的错误信息
     msg = [
       "Error:"
@@ -202,6 +209,12 @@
     ]
 
     entry.error msg.join("<br/>")
+
+  bind WIN, ERROR, errListener
+
+  # 取消绑定window的错误捕捉
+  entry.guai = ->
+    unbind WIN, ERROR, errListener
 
   if typeof exports isnt "undefined" and module.exports
     module.exports = exports = entry
