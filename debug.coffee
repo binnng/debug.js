@@ -219,7 +219,7 @@
   if typeof exports isnt "undefined" and module.exports
     module.exports = exports = entry
   else if typeof define is "function"
-    define (require, exports, module) ->
+    define "debug", (require, exports, module) ->
       module.exports = exports = entry
   else if typeof angular is "object"
     angular.module("binnng/debug", []).factory "$debug", -> entry
