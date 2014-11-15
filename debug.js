@@ -163,7 +163,7 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
   if (typeof exports !== "undefined" && module.exports) {
     return module.exports = exports = entry;
   } else if (typeof define === "function") {
-    return define(function(require, exports, module) {
+    return define("debug", function(require, exports, module) {
       return module.exports = exports = entry;
     });
   } else if (typeof angular === "object") {
