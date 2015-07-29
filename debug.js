@@ -54,8 +54,10 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
           item = msg[_i];
           if (typeof item === "object") {
             arr.push(render(item));
+            text = "[" + arr.join(',') + "]";
           } else {
             arr.push("" + item);
+            text = "[" + arr.join(',') + "]";
           }
         }
       } else if (isObejct(msg)) {
