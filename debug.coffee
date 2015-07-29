@@ -109,7 +109,7 @@
       "padding:10px"
       "border-top:1px solid rgba(255,255,255,.1)"
       "margin:0"
-      "max-width:"+window.outerWidth-20+"px";
+      "max-width:" + ( WIN.outerWidth - 20 ) +"px"
     ].concat publicCss
 
     # debug容器的样式
