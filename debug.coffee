@@ -70,13 +70,13 @@
       if isArray msg
         for item in msg
           if typeof(item) is "object"
-            arr.push rander(item)
+            arr.push render(item)
           else
             arr.push "#{item}"
 
       else if isObejct msg
         for item of msg
-          if typeof(item) is "object"
+          if typeof(msg[item]) is "object"
             arr.push "#{item}: " + render(msg[item])
             text = "{" + arr.join(',') + "}"
           else

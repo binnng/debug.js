@@ -53,14 +53,14 @@ var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments)
         for (_i = 0, _len = msg.length; _i < _len; _i++) {
           item = msg[_i];
           if (typeof item === "object") {
-            arr.push(rander(item));
+            arr.push(render(item));
           } else {
             arr.push("" + item);
           }
         }
       } else if (isObejct(msg)) {
         for (item in msg) {
-          if (typeof item === "object") {
+          if (typeof msg[item] === "object") {
             arr.push(("" + item + ": ") + render(msg[item]));
             text = "{" + arr.join(',') + "}";
           } else {
