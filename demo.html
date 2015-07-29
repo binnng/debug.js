@@ -8,6 +8,26 @@
 </head>
 <body style="background: #eee">
 	<script type="text/javascript">
+		var test = {
+          1: "value1",
+          "2": "value2",
+          count: 3,
+          person: [
+            {
+              id: 1,
+              name: "张三"
+            },
+            {
+              id: 2,
+              name: "李四"
+            }
+          ],
+          object: { //对象结构JSON对象
+            id: 1,
+            msg: "对象里的对象"
+          }
+        };
+		debug.success(test);
 		debug.success("This is success message:)");
 		debug.error("This is error message:)");
 		debug.log("This is primary message:)");
