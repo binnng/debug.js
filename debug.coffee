@@ -1,6 +1,6 @@
 # ```
 # debug.js 1.0.0
-# 
+#
 # ! CopyRight: binnng http://github.com/binnng/debug.js
 # Licensed under: MIT
 # http://binnng.github.io/debug.js
@@ -42,19 +42,20 @@
 
   isNull = (val) -> val is NULL
 
-  isArray = Array.isArray or (val) -> 
+  isArray = Array.isArray or (val) ->
     val and "[object Array]" is toString.call(val)
 
-  isObejct = (val) -> 
+  isObejct = (val) ->
     typeof val is "object" and not isArray(val) and not isNull(val)
 
   # 不能直接定义，可能取不到
   getBody = -> DOC["body"] or dom("body")?[0] or dom("html")?[0]
 
+
   class Debug
 
     # 种类和颜色
-    debugMap = 
+    debugMap =
       log: "0074cc"
       danger: "da4f49"
       warn: "faa732"
@@ -67,12 +68,22 @@
       arr = []
 
       if isArray msg
-        arr.push "#{item}" for item in msg
-        text = "[" + arr.join(',') + "]"
+        for item in msg
+          if typeof(item) is "object"
+            arr.push render(item)
+            text = "[" + arr.join(',') + "]"
+          else
+            arr.push "#{item}"
+            text = "[" + arr.join(',') + "]"
 
       else if isObejct msg
-        arr.push "#{item}: #{msg[item]}" for item of msg
-        text = "{" + arr.join(',') + "}"
+        for item of msg
+          if typeof(msg[item]) is "object"
+            arr.push "#{item}: " + render(msg[item])
+            text = "{" + arr.join(',') + "}"
+          else
+            arr.push "#{item}: #{msg[item]}"
+            text = "{" + arr.join(',') + "}"
 
       else
         text = String(msg)
@@ -97,9 +108,10 @@
     # 每个debug信息样式
     childCss = [
       "margin-top:-1px"
-      "padding:.5em"
+      "padding:10px"
       "border-top:1px solid rgba(255,255,255,.1)"
       "margin:0"
+      "max-width:" + ( WIN.outerWidth - 20 ) + "px"
     ].concat publicCss
 
     # debug容器的样式
@@ -118,7 +130,7 @@
       "padding-bottom:#{parentBottom}px"
     ].concat publicCss
 
-    constructor: -> 
+    constructor: ->
       # 是否初始化，是否收起
       @isInit = @isHide = no
 
