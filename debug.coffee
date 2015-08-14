@@ -128,6 +128,7 @@
       "color:#fff"
       "width:100%"
       "padding-bottom:#{parentBottom}px"
+      "max-height:100%"
     ].concat publicCss
 
     constructor: ->
@@ -227,6 +228,12 @@
   # 取消绑定window的错误捕捉
   entry.guai = ->
     unbind WIN, ERROR, errListener
+
+  # 如果是移动设备
+  # 接管`console.log`
+  # 使用uglify压缩可以去掉所有console代码
+  if isTouch
+    console.log = entry.log.bind entry
 
   if typeof exports isnt "undefined" and module.exports
     module.exports = exports = entry
