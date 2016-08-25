@@ -226,7 +226,7 @@
   bind WIN, ERROR, errListener
 
   # 取消绑定window的错误捕捉
-  entry.guai = ->
+  entry.silence = ->
     unbind WIN, ERROR, errListener
 
   # 如果是移动设备

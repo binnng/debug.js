@@ -167,7 +167,7 @@ var bind1 = function(fn, me){ return function(){ return fn.apply(me, arguments);
     return entry.error(msg.join("<br/>"));
   };
   bind(WIN, ERROR, errListener);
-  entry.guai = function() {
+  entry.silence = function() {
     return unbind(WIN, ERROR, errListener);
   };
   if (isTouch) {

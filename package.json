@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/binnng/debug.js.git"
   },
+  "scripts": {
+    "build": "rm -rf build && mkdir build && uglifyjs debug.js -o build/debug.min.js -m"
+  },
   "keywords": [
     "debug",
     "console"
