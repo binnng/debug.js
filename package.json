@@ -1,5 +1,5 @@
 {
-  "name": "debug.js",
+  "name": "m-debug.js",
   "version": "1.0.0",
   "description": "debug your code in mobile",
   "main": "debug.js",
