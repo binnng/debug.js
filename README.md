@@ -15,7 +15,7 @@ debug.log([1,2,3]);
 `debug.js`为了方便调试，会默认开启捕捉浏览器的报错。如果你不需要这个功能，可以这样禁止它：
 
 ```javascript
-debug.guai()
+debug.silence()
 ```
 
 ### 预览
