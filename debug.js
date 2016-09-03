@@ -3,7 +3,7 @@ var bind1 = function(fn, me){ return function(){ return fn.apply(me, arguments);
 
 (function(WIN, DOC) {
   "use strict";
-  var CLICK, DANGER, Debug, ERROR, LOG, NULL, SUCCESS, UNDEFINED, WARN, bind, dom, entry, errListener, exports, getBody, isArray, isNull, isObejct, isTouch, noop, toString, unbind;
+  var CLICK, DANGER, Debug, ERROR, LOG, NULL, SUCCESS, UNDEFINED, WARN, _log, bind, dom, entry, errListener, exports, getBody, isArray, isNull, isObejct, isTouch, noop, toString, unbind;
   UNDEFINED = void 0;
   NULL = null;
   LOG = "log";
@@ -171,7 +171,11 @@ var bind1 = function(fn, me){ return function(){ return fn.apply(me, arguments);
     return unbind(WIN, ERROR, errListener);
   };
   if (isTouch) {
-    console.log = entry.log.bind(entry);
+    _log = window.console.log;
+    console.log = function() {
+      entry.log(arguments[0]);
+      return _log.apply(window.console, arguments);
+    };
   }
   if (typeof exports !== "undefined" && module.exports) {
     return module.exports = exports = entry;

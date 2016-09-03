@@ -210,7 +210,7 @@
   entry = new Debug()
 
   # 绑定window，捕捉js报错信息
-  # 可以通过debug.guai()禁用
+  # 可以通过debug.silence()禁用
   errListener = (error) ->
     # 只输出有用的错误信息
     msg = [
@@ -233,7 +233,10 @@
   # 接管`console.log`
   # 使用uglify压缩可以去掉所有console代码
   if isTouch
-    console.log = entry.log.bind entry
+    _log = window.console.log 
+    console.log = ->
+      entry.log arguments[0]
+      _log.apply window.console, arguments
 
   if typeof exports isnt "undefined" and module.exports
     module.exports = exports = entry
